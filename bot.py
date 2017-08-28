@@ -73,7 +73,7 @@ class Bot():
                     score = len(self.author_points[comment.subreddit.display_name][comment.author.name])
                 flair_class = self.score_class(score)
                 flair_text = "+"+str(score)
-                r.set_flair(comment.subreddit, comment.author, flair_text=flair_text, flair_css_class = flair_class)
+                comment.subreddit.flair.set(comment.author, text=flair_text, css_class = flair_class)
                 print('reset flair for /u/'+comment.author.name+' in /r/'+comment.subreddit.display_name)
                 continue
 
