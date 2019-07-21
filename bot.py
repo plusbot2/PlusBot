@@ -14,7 +14,7 @@ sub = r.subreddit('karlpolicebots')
 
 
 class Bot():
-    
+    print(r)
     def __init__(self):
         
         #store up to 100 link/author pairs
