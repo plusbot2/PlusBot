@@ -7,7 +7,6 @@ import bot_login
 import os
 
 #Set globals
-#empty
 
 r = bot_login.bot_login()
 sub = r.subreddit('karlpolicebots')
@@ -144,5 +143,7 @@ class Bot():
 
 
 if __name__=="__main__":
-    bot=Bot()
+    #bot=Bot()
+    r = bot_login.bot_login()
+    print(r)
     bot.run()
