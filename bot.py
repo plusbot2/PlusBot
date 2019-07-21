@@ -3,14 +3,11 @@ from collections import deque
 import re
 import yaml
 import os
+import bot_login
 
 #Set globals
-r=praw.Reddit(user_agent="PlusBot by /u/captainmeta4",
-              username="plusbot2",
-              password= os.environ.get('password'),
-              client_id= os.environ.get('client_id'),
-              client_secret= os.environ.get('client_secret')
-              )
+
+r = bot_login.bot_login()
 sub = r.subreddit('karlpolicebots')
 
 
