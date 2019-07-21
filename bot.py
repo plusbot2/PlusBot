@@ -143,5 +143,7 @@ class Bot():
 
 
 if __name__=="__main__":
-    bot=Bot()
-    bot.run()
+    r = bot_login.bot_login()
+    for comment in r.subreddit('all').stream.comments():
+        if ("lol" in comment.body.lower() and not comment.saved and comment.author != r.user.me()):
+            print (comment.body)
