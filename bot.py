@@ -11,7 +11,7 @@ r=praw.Reddit(user_agent="PlusBot by /u/captainmeta4",
               client_id= os.environ.get('client_id'),
               client_secret= os.environ.get('client_secret')
               )
-sub = r.subreddit('captainmeta4bots')
+sub = r.subreddit('karlpolicebots')
 
 
 class Bot():
