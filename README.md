@@ -1,3 +1,2 @@
 # PlusBot
 
-Bot is decomissioned.
