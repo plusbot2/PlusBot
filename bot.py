@@ -3,6 +3,7 @@ from collections import deque
 import re
 import yaml
 import os
+import bot_login
 
 #Set globals
 sub = r.subreddit('karlpolicebots')
