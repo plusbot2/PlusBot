@@ -133,3 +133,5 @@ class Bot():
 if __name__=="__main__":
     r = bot_login.bot_login()
     sub = r.subreddit('karlpolicebots')
+    bot=Bot()
+    bot.run()
