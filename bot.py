@@ -8,7 +8,6 @@ import os
 
 if __name__=="__main__":
     r = bot_login.bot_login()
-    print("Connected user: " + r.user.me())
             
 
 class Bot():
