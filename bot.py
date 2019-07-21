@@ -4,11 +4,7 @@ import re
 import json
 import yaml
 import bot_login
-import os
-
-if __name__=="__main__":
-    r = bot_login.bot_login()
-            
+import os   
 
 class Bot():
     
@@ -133,3 +129,7 @@ class Bot():
             print(parent_comment.author.name+" scored in /r/"+comment.subreddit.display_name)
 
 
+
+if __name__=="__main__":
+    r = bot_login.bot_login()
+    sub = r.subreddit('karlpolicebots')
