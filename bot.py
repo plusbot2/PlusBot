@@ -1,9 +1,10 @@
 import praw
 from collections import deque
 import re
+import json
 import yaml
-import os
 import bot_login
+import os
 
 #Set globals
 #empty
