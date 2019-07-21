@@ -9,7 +9,7 @@ import os
 if __name__=="__main__":
     r = bot_login.bot_login()
     for comment in r.subreddit('all').comments(limit=25):
-        if ("lol" in comment.body):
+        if ("the" in comment.body):
             print (comment.body)
             
 
