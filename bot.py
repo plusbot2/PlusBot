@@ -5,12 +5,6 @@ import yaml
 import os
 
 #Set globals
-r=praw.Reddit(user_agent="PlusBot by /u/captainmeta4",
-              username="plusbot2",
-              password= os.environ.get('password'),
-              client_id= os.environ.get('client_id'),
-              client_secret= os.environ.get('client_secret')
-              )
 sub = r.subreddit('karlpolicebots')
 
 
