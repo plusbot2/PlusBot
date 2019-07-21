@@ -6,13 +6,15 @@ import os
 import bot_login
 
 #Set globals
+#empty
 
-r = bot_login.bot_login()
-sub = r.subreddit('karlpolicebots')
 
 
 class Bot():
-
+    try:
+        r = bot_login.bot_login()
+        sub = r.subreddit('karlpolicebots')
+    
     def __init__(self):
 
 
