@@ -6,6 +6,9 @@ import os
 import bot_login
 
 #Set globals
+
+r = bot_login.bot_login()
+
 sub = r.subreddit('karlpolicebots')
 
 
