@@ -143,7 +143,5 @@ class Bot():
 
 
 if __name__=="__main__":
-    #bot=Bot()
-    r = bot_login.bot_login()
-    print(r)
+    bot=Bot()
     bot.run()
