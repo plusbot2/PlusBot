@@ -15,6 +15,7 @@ sub = r.subreddit('karlpolicebots')
 class Bot():
     
     def __init__(self):
+        """Initial setup."""
         
         #store up to 100 link/author pairs
         self.link_authors = deque([],maxlen=100)
