@@ -69,7 +69,6 @@ class Bot():
                 if comment.author.name in self.author_points[comment.subreddit.display_name]:
                     print("test")
                     score = len(self.author_points[comment.subreddit.display_name][comment.author.name])
-                    
                 flair_class = self.score_class(score)
                 flair_text = "+"+str(score)
                 comment.subreddit.flair.set(comment.author, text=flair_text, css_class = flair_class)
