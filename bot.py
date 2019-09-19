@@ -22,7 +22,6 @@ class Bot():
 
         #get cache of authors and links awarded
         self.author_points = yaml.load(sub.wiki["plusbot"].content_md)
-        print(sub.wiki["plusbot"].content_md)
 
     def run(self):
         self.scan_comments()
@@ -104,9 +103,6 @@ class Bot():
             
             if comment.subreddit.display_name not in self.author_points:
                 self.author_points[comment.subreddit.display_name]={}
-            print(self.author_points)
-            print(parent_comment.author.name)
-            print(self.author_points[comment.subreddit.display_name])
             if parent_comment.author.name not in self.author_points[comment.subreddit.display_name]:
                 self.author_points[comment.subreddit.display_name][parent_comment.author.name]=[]
 
