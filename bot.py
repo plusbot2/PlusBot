@@ -128,9 +128,8 @@ class Bot():
 
             #if user has no flair, or score flair, set new score flair
             if parent_comment.author_flair_text is None:
-                continue
-            print("test")
-            if parent_comment.author_flair_css_class is None:
+                print("test")
+            elif parent_comment.author_flair_css_class is None:
                 print("test2")
                 #save flair to reddit
                 comment.subreddit.flair.set(redditor=parent_comment.author, text=flair_text, css_class=flair_class)
