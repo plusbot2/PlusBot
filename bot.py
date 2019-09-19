@@ -54,6 +54,10 @@ class Bot():
             flair_class = "score-t3"
         if score >=30:
             flair_class = "score-t4"
+        if score >=50:
+            flair_class = "score-t5"
+        if score >=80:
+            flair_class = "score-t6"
 
         return flair_class
 
@@ -64,18 +68,19 @@ class Bot():
         for comment in r.subreddit('mod').stream.comments():
 
             #Flair reset
-            if comment.author_flair_css_class == "plusbot-score-reset":
-                score = 0
-                if comment.author.name in self.author_points:
-                    score = len(self.author_points[comment.subreddit.display_name][comment.author.name])
-                flair_class = self.score_class(score)
-                flair_text = "+"+str(score)
-                comment.subreddit.flair.set(comment.author, text=flair_text, css_class = flair_class)
-                print('reset flair for /u/'+comment.author.name+' in /r/'+comment.subreddit.display_name)
-                continue
+            if comment.body.startswith("!plusbot-reset"):
+                if comment.author_flair_css_class == "plusbot-score-reset":
+                    score = 0
+                    if comment.author.name in self.author_points[comment.subreddit.display_name]:
+                        score = len(self.author_points[comment.subreddit.display_name][comment.author.name])
+                    flair_class = self.score_class(score)
+                    flair_text = "+"+str(score)
+                    comment.subreddit.flair.set(comment.author, text=flair_text, css_class = flair_class)
+                    print('reset flair for /u/'+comment.author.name+' in /r/'+comment.subreddit.display_name)
+                    continue
 
             #if comment doesn't start with a + character then we're not interested
-            if not comment.body.startswith("+"):
+            if not comment.body.startswith("+\n"):
                 continue
             
             #if comment is top level then we're not interested
@@ -122,10 +127,21 @@ class Bot():
 
 
             #if user has no flair, or score flair, set new score flair
-            if parent_comment.author_flair_css_class is None:
+            print(parent_comment.author_flair_css_class)
+            print(len(parent_comment.author_flair_css_class))
+            #check if user has any of the score flairs.
+            #if any(x in parent_comment.author_flair_css_class for x in ['score-t1','score-t2','score-t3','score-t4','score-t5','score-t6']):
+            if parent_comment.author_flair_css_class in ['score-t1','score-t2','score-t3','score-t4','score-t5','score-t6']:
                 #save flair to reddit
                 comment.subreddit.flair.set(redditor=parent_comment.author, text=flair_text, css_class=flair_class)
-            elif any(x in parent_comment.author_flair_css_class for x in ['score-t1','score-t2','score-t3','score-t4']):
+            #checks if the length of string isn't 0 and if it is, then the user has no text flair.
+            elif len(parent_comment.author_flair_text) != 0:
+                
+            #checks if the array is empty or not.
+            elif parent_comment.author_flair_richtext is None or parent_comment.author_flair_richtext == 0:
+                
+            #checks if there is a css class for the flair.
+            elif parent_comment.author_flair_css_class is None or len(parent_comment.author_flair_css_class) == 0:
                 #save flair to reddit
                 comment.subreddit.flair.set(redditor=parent_comment.author, text=flair_text, css_class=flair_class)
 
