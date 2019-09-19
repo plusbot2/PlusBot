@@ -101,7 +101,9 @@ class Bot():
                 continue
 
             #add user to authorpoints
-
+            
+            print(self.author_points)
+            print(comment.subreddit.display_name)
             if comment.subreddit.display_name not in self.author_points:
                 self.author_points[comment.subreddit.display_name]={}
             print(self.author_points)
