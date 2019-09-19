@@ -22,7 +22,7 @@ class Bot():
 
         #get cache of authors and links awarded
         self.author_points = yaml.load(sub.wiki["plusbot"].content_md)
-        print(sub.wiki["plusbot"].content)
+        print(sub.wiki["plusbot"].content_md)
 
     def run(self):
         self.scan_comments()
