@@ -130,7 +130,7 @@ class Bot():
             if parent_comment.author_flair_css_class is None:
                 #save flair to reddit
                 comment.subreddit.flair.set(redditor=parent_comment.author, text=flair_text, css_class=flair_class)
-            elif any(x in parent_comment.author_flair_css_class for x in ['score-t1','score-t2','score-t3','score-t4']):
+            elif any(x in parent_comment.author_flair_css_class for x in ['score-t1','score-t2','score-t3','score-t4','score-t5','score-t6']):
                 #save flair to reddit
                 comment.subreddit.flair.set(redditor=parent_comment.author, text=flair_text, css_class=flair_class)
 
