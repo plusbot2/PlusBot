@@ -130,7 +130,7 @@ class Bot():
             print(parent_comment.author_flair_text)
             print(parent_comment.author_flair_richtext)
             print(parent_comment.author_flair_css_class)
-            if not parent_comment.author_flair_text:
+            if len(parent_comment.author_flair_text) == 0:
                 print("test")
             elif parent_comment.author_flair_richtext is None or parent_comment.author_flair_richtext:
                 print("test2")
