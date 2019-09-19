@@ -68,7 +68,7 @@ class Bot():
         for comment in r.subreddit('mod').stream.comments():
 
             #Flair reset
-            if not comment.body.startswith("!plusbot-reset"):
+            if comment.body.startswith("!plusbot-reset"):
                 if comment.author_flair_css_class == "plusbot-score-reset":
                     score = 0
                     if comment.author.name in self.author_points[comment.subreddit.display_name]:
