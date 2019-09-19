@@ -128,14 +128,16 @@ class Bot():
 
             #if user has no flair, or score flair, set new score flair
             print(parent_comment.author_flair_text)
-            print(bool(parent_comment.author_flair_text))
             print(parent_comment.author_flair_richtext)
+            print(len(parent_comment.author_flair_richtext))
             print(parent_comment.author_flair_css_class)
-            #checks if length of string isn't 0 and if it is 0, then the user has no text flair.
+            #checks if the length of string isn't 0 and if it is, then the user has no text flair.
             if len(parent_comment.author_flair_text) != 0:
                 print("test1")
-            elif parent_comment.author_flair_richtext is None or parent_comment.author_flair_richtext != 0:
+            #checks if the array is empty or not.
+            elif parent_comment.author_flair_richtext is None or parent_comment.author_flair_richtext == 0:
                 print("test2")
+            #checks if there is a css class for the flair.
             elif parent_comment.author_flair_css_class is None:
                 print("test3")
                 #save flair to reddit
