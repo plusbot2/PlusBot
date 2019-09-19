@@ -1,6 +1,6 @@
 PyYAML==3.11
 oauthlib==1.0.3
-praw==6.0.0
+praw==6.3.1
 prawcore==1.0.0
 psycopg2-binary==2.7.6.1
 pyOpenSSL==18.0.0
