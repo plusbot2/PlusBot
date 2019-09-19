@@ -64,7 +64,7 @@ class Bot():
         for comment in r.subreddit('mod').stream.comments():
 
             #Flair reset
-            if comment.author_flair_css_class == "reset":
+            if comment.author_flair_css_class == "plusbot-score-reset":
                 score = 0
                 if comment.author.name in self.author_points:
                     score = len(self.author_points[comment.subreddit.display_name][comment.author.name])
@@ -89,6 +89,7 @@ class Bot():
 
             #get parent comment author
             parent_comment = next(r.info([comment.parent_id]))
+            print(parent_comment)
 
             #make sure user exists
             if parent_comment.author is None:
@@ -99,7 +100,7 @@ class Bot():
                 continue
 
             #add user to authorpoints
-
+            
             if comment.subreddit.display_name not in self.author_points:
                 self.author_points[comment.subreddit.display_name]={}
             if parent_comment.author.name not in self.author_points[comment.subreddit.display_name]:
