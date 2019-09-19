@@ -54,6 +54,10 @@ class Bot():
             flair_class = "score-t3"
         if score >=30:
             flair_class = "score-t4"
+        if score >=50:
+            flair_class = "score-t5"
+        if score >=80:
+            flair_class = "score-t6"
 
         return flair_class
 
@@ -64,16 +68,16 @@ class Bot():
         for comment in r.subreddit('mod').stream.comments():
 
             #Flair reset
-            if comment.author_flair_css_class == "plusbot-score-reset":
-                score = 0
-                if comment.author.name in self.author_points[comment.subreddit.display_name]:
-                    print("test")
-                    score = len(self.author_points[comment.subreddit.display_name][comment.author.name])
-                flair_class = self.score_class(score)
-                flair_text = "+"+str(score)
-                comment.subreddit.flair.set(comment.author, text=flair_text, css_class = flair_class)
-                print('reset flair for /u/'+comment.author.name+' in /r/'+comment.subreddit.display_name)
-                pass
+            if not comment.body.startswith("!plusbot-reset"):
+                if comment.author_flair_css_class == "plusbot-score-reset":
+                    score = 0
+                    if comment.author.name in self.author_points[comment.subreddit.display_name]:
+                        score = len(self.author_points[comment.subreddit.display_name][comment.author.name])
+                    flair_class = self.score_class(score)
+                    flair_text = "+"+str(score)
+                    comment.subreddit.flair.set(comment.author, text=flair_text, css_class = flair_class)
+                    print('reset flair for /u/'+comment.author.name+' in /r/'+comment.subreddit.display_name)
+                    continue
 
             #if comment doesn't start with a + character then we're not interested
             if not comment.body.startswith("+"):
