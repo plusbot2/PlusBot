@@ -80,7 +80,7 @@ class Bot():
                     continue
 
             #if comment doesn't start with a + character then we're not interested
-            if not comment.body.startswith("+"):
+            if not comment.body.startswith("+\n"):
                 continue
             
             #if comment is top level then we're not interested
