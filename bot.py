@@ -127,7 +127,7 @@ class Bot():
 
 
             #if user has no flair, or score flair, set new score flair
-            if parent_comment.author_flair_text is None:
+            if parent_comment.author_flair_text is not None:
                 print("test")
             elif parent_comment.author_flair_css_class is None:
                 print("test2")
