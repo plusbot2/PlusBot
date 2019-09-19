@@ -131,8 +131,12 @@ class Bot():
             print(parent_comment.author_flair_richtext)
             print(len(parent_comment.author_flair_richtext))
             print(parent_comment.author_flair_css_class)
+            #check if user has any of the score flairs.
+            if any(x in parent_comment.author_flair_css_class for x in ['score-t1','score-t2','score-t3','score-t4','score-t5','score-t6']):
+                #save flair to reddit
+                comment.subreddit.flair.set(redditor=parent_comment.author, text=flair_text, css_class=flair_class)
             #checks if the length of string isn't 0 and if it is, then the user has no text flair.
-            if len(parent_comment.author_flair_text) != 0:
+            elif len(parent_comment.author_flair_text) != 0:
                 print("test1")
             #checks if the array is empty or not.
             elif parent_comment.author_flair_richtext is None or parent_comment.author_flair_richtext == 0:
@@ -140,9 +144,6 @@ class Bot():
             #checks if there is a css class for the flair.
             elif parent_comment.author_flair_css_class is None or len(parent_comment.author_flair_text) == 0:
                 print("test3")
-                #save flair to reddit
-                comment.subreddit.flair.set(redditor=parent_comment.author, text=flair_text, css_class=flair_class)
-            elif any(x in parent_comment.author_flair_css_class for x in ['score-t1','score-t2','score-t3','score-t4','score-t5','score-t6']):
                 #save flair to reddit
                 comment.subreddit.flair.set(redditor=parent_comment.author, text=flair_text, css_class=flair_class)
 
