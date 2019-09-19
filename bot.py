@@ -73,7 +73,7 @@ class Bot():
                 flair_text = "+"+str(score)
                 comment.subreddit.flair.set(comment.author, text=flair_text, css_class = flair_class)
                 print('reset flair for /u/'+comment.author.name+' in /r/'+comment.subreddit.display_name)
-                continue
+                #continue
 
             #if comment doesn't start with a + character then we're not interested
             if not comment.body.startswith("+"):
