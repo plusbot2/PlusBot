@@ -66,8 +66,8 @@ class Bot():
             #Flair reset
             if comment.author_flair_css_class == "plusbot-score-reset":
                 score = 0
-                print(len(self.author_points[comment.subreddit.display_name][comment.author.name]))
                 if comment.author.name in self.author_points:
+                    print("test")
                     score = len(self.author_points[comment.subreddit.display_name][comment.author.name])
                 flair_class = self.score_class(score)
                 flair_text = "+"+str(score)
