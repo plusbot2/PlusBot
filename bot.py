@@ -104,9 +104,8 @@ class Bot():
 
             if comment.subreddit.display_name not in self.author_points:
                 self.author_points[comment.subreddit.display_name]={}
-            print(self.author_points[comment.subreddit.display_name])
-            print(comment.subreddit.display_name)
-            print(parent_comment.author.name)
+            print(self.author_points)
+            print(self.author_points[subreddit])
             if parent_comment.author.name not in self.author_points[comment.subreddit.display_name]:
                 self.author_points[comment.subreddit.display_name][parent_comment.author.name]=[]
 
