@@ -141,7 +141,7 @@ class Bot():
             elif parent_comment.author_flair_richtext is None or parent_comment.author_flair_richtext == 0:
                 print("test2")
             #checks if there is a css class for the flair.
-            elif parent_comment.author_flair_css_class is None or len(parent_comment.author_flair_text) == 0:
+            elif parent_comment.author_flair_css_class is None or len(parent_comment.author_flair_css_class) == 0:
                 print("test3")
                 #save flair to reddit
                 comment.subreddit.flair.set(redditor=parent_comment.author, text=flair_text, css_class=flair_class)
