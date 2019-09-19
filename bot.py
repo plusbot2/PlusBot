@@ -133,7 +133,7 @@ class Bot():
             #check if length of text is 0 and if not, the user has a flair.
             if not len(parent_comment.author_flair_text) == 0:
                 print("test")
-            elif parent_comment.author_flair_richtext is None or parent_comment.author_flair_richtext:
+            elif parent_comment.author_flair_richtext is None or not len(parent_comment.author_flair_richtext) == 0:
                 print("test2")
             elif parent_comment.author_flair_css_class is None:
                 print("test3")
