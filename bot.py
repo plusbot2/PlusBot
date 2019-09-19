@@ -89,7 +89,8 @@ class Bot():
                 continue
 
             #get parent comment author
-            parent_comment = next(r.get_info([comment.parent_id]))
+            parent_comment = next(r.info([comment.parent_id]))
+            print(parent_comment)
 
             #make sure user exists
             if parent_comment.author is None:
