@@ -1,4 +1,4 @@
-PyYAML==5.1.2
+PyYAML==3.11
 oauthlib==1.0.3
 praw==6.0.0
 prawcore==1.0.0
