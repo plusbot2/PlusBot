@@ -72,7 +72,7 @@ class Bot():
                 if comment.author_flair_css_class == "plusbot-score-reset":
                     score = 0
                     if comment.author.name in self.author_points[comment.subreddit.display_name]:
-                        self.author_points = yaml.load(sub.wiki["plusbot"].content_md) #experimental
+                        #self.author_points = yaml.load(sub.wiki["plusbot"].content_md) #experimental
                         score = len(self.author_points[comment.subreddit.display_name][comment.author.name])
                     flair_class = self.score_class(score)
                     flair_text = "+"+str(score)
