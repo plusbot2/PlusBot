@@ -136,10 +136,10 @@ class Bot():
                 comment.subreddit.flair.set(redditor=parent_comment.author, text=flair_text, css_class=flair_class)
             #checks if the length of string isn't 0 and if it is, then the user has no text flair.
             elif len(parent_comment.author_flair_text) != 0:
-                
+                pass
             #checks if the array is empty or not.
             elif parent_comment.author_flair_richtext is None or parent_comment.author_flair_richtext == 0:
-                
+                pass
             #checks if there is a css class for the flair.
             elif parent_comment.author_flair_css_class is None or len(parent_comment.author_flair_css_class) == 0:
                 
