@@ -128,8 +128,6 @@ class Bot():
 
 
             #if user has no flair, or score flair, set new score flair
-            print(parent_comment.author_flair_text)
-            print(vars(parent_comment))
             
             #check if user has any of the score flairs.
             #if any(x in parent_comment.author_flair_css_class for x in ['score-t1','score-t2','score-t3','score-t4']):
