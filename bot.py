@@ -143,8 +143,10 @@ class Bot():
             #checks if there is a css class for the flair.
             elif parent_comment.author_flair_css_class is None or len(parent_comment.author_flair_css_class) == 0:
                 
-                #save flair to reddit
-                comment.subreddit.flair.set(redditor=parent_comment.author, text=flair_text, css_class=flair_class)
+                #Don't assign a flair if the user is already on the YAML config, because incase someone doesn't want it.
+                if parent_comment.author.name not in self.author_points[comment.subreddit.display_name]:
+                    #save flair to reddit
+                    comment.subreddit.flair.set(redditor=parent_comment.author, text=flair_text, css_class=flair_class)
 
             #save new authorpoints to wiki
 
