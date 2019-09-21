@@ -151,7 +151,7 @@ class Bot():
             elif parent_comment.author_flair_css_class is None or len(parent_comment.author_flair_css_class) == 0:
                 
                 #don't assign a flair if the user is already on the YAML config, because incase someone doesn't want it.
-                if scoreFirstTime != 1:
+                if scoreFirstTime == 1:
                     #save flair to reddit
                     comment.subreddit.flair.set(redditor=parent_comment.author, text=flair_text, css_class=flair_class)
 
