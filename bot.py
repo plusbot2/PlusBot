@@ -103,6 +103,15 @@ class Bot():
             #make sure they are different people
             if parent_comment.author.name == comment.author.name:
                 continue
+            
+            scoreFirstTime = 0
+            #check if the user already exists on the YAML config.
+            print(parent_comment.author.name)
+            print(self.author_points[comment.subreddit.display_name])
+            if parent_comment.author.name not in self.author_points[comment.subreddit.display_name]:
+                scoreFirstTime = 1
+            else:
+                scoreFirstTime = 0
 
             #add user to authorpoints
             
@@ -114,16 +123,6 @@ class Bot():
             #check to see if user has scored this thread
             if comment.link_id in self.author_points[comment.subreddit.display_name][parent_comment.author.name]:
                 continue
-            
-            scoreFirstTime = 0
-            #check if the user already exists on the YAML config.
-            print(parent_comment.author.name)
-            print(self.author_points[comment.subreddit.display_name])
-            print(self.author_points[comment.subreddit.display_name][parent_comment.author.name])
-            if parent_comment.author.name not in self.author_points[comment.subreddit.display_name]:
-                scoreFirstTime = 1
-            else:
-                scoreFirstTime = 0
             
             #add user to authorpoints
             self.author_points[comment.subreddit.display_name][parent_comment.author.name].append(comment.link_id)
