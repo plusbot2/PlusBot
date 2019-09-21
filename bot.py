@@ -129,17 +129,20 @@ class Bot():
 
             #if user has no flair, or score flair, set new score flair
             print(parent_comment.author_flair_text)
+            print(parent_comment.author_flair_text.encode())
             print(parent_comment.author_flair_richtext)
+            print(len(parent_comment.author_flair_richtext))
+            
             #check if user has any of the score flairs.
             #if any(x in parent_comment.author_flair_css_class for x in ['score-t1','score-t2','score-t3','score-t4']):
             if parent_comment.author_flair_css_class in ['score-t1','score-t2','score-t3','score-t4','score-t5','score-t6']:
                 #save flair to reddit
                 comment.subreddit.flair.set(redditor=parent_comment.author, text=flair_text, css_class=flair_class)
-            #checks if the length of string isn't 0 or None and if it is, then the user has no text flair.
-            elif parent_comment.author_flair_text is not None or len(parent_comment.author_flair_text) != 0:
+            #checks if the length of string isn't 0 and None, and if it is, then the user has no text flair.
+            elif parent_comment.author_flair_text is not None and len(parent_comment.author_flair_text) != 0:
                 pass
             #checks if the array is empty or not.
-            elif parent_comment.author_flair_richtext is not None or parent_comment.author_flair_richtext != 0:
+            elif parent_comment.author_flair_richtext is None or parent_comment.author_flair_richtext == 0:
                 pass
             #checks if there is a css class for the flair.
             elif parent_comment.author_flair_css_class is None or len(parent_comment.author_flair_css_class) == 0:
