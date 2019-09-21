@@ -107,7 +107,6 @@ class Bot():
             scoreFirstTime = 0
             #check if the user already exists on the YAML config.
             print(parent_comment.author.name)
-            print(self.author_points[comment.subreddit.display_name])
             if parent_comment.author.name not in self.author_points[comment.subreddit.display_name]:
                 scoreFirstTime = 1
             else:
@@ -134,6 +133,7 @@ class Bot():
             #variables for new flair
             flair_class = self.score_class(score)
             flair_text = "+"+str(score)
+            print(parent_comment.author.name)
 
 
             #if user has no flair, or score flair, set new score flair
