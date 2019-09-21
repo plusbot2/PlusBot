@@ -129,10 +129,8 @@ class Bot():
 
             #if user has no flair, or score flair, set new score flair
             print(parent_comment.author_flair_text)
-            print(parent_comment.author_flair_text.encode())
-            print(len(parent_comment.author_flair_text))
             print(parent_comment.author_flair_richtext)
-            print(len(parent_comment.author_flair_richtext))
+            print(vars(parent_comment.author_flair_richtext))
             
             #check if user has any of the score flairs.
             #if any(x in parent_comment.author_flair_css_class for x in ['score-t1','score-t2','score-t3','score-t4']):
@@ -144,7 +142,6 @@ class Bot():
                 pass
             #checks if the array is empty or not.
             elif parent_comment.author_flair_richtext is not None and len(parent_comment.author_flair_richtext) != 0:
-                print("test2")
                 pass
             #checks if there is a css class for the flair.
             elif parent_comment.author_flair_css_class is None or len(parent_comment.author_flair_css_class) == 0:
