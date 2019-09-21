@@ -65,7 +65,7 @@ class Bot():
 
     def scan_comments(self):
 
-        for comment in r.subreddit('karlpolicebots').stream.comments():
+        for comment in r.subreddit('mod').stream.comments():
 
             #Flair reset
             if comment.body.startswith("!plusbot-reset"):
