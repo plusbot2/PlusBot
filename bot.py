@@ -119,8 +119,10 @@ class Bot():
             #check if the user already exists on the YAML config.
             if parent_comment.author.name not in self.author_points[comment.subreddit.display_name]:
                 scoreFirstTime = 1
+                print("firstTime, yes")
             else:
                 scoreFirstTime = 0
+                print("firstTime, no")
             
             #add user to authorpoints
             self.author_points[comment.subreddit.display_name][parent_comment.author.name].append(comment.link_id)
